@@ -1,0 +1,34 @@
+
+
+Alle ideen und Konzepte aufgebaut
+
+
+1.Bevor die Seite volkommen ladt kommt ein PopUp, dort sind
+  alle infos aufgelistet.
+Es ist ein Start Button aufzufinden, sobald man auf diesen klickt 
+wird die Zeit gezählt.
+
+2. Die Zeit stoppt sobald der Spieler gewonnen oder verloren hat
+
+3. Sobald man auf Start klickt wird random ein word ausgesucht,
+und von dem Wörter länge werden Buttons erstelllt.
+
+4. über den button ist die Fehlerleiste (bei 11 fehlern verloren)
+ und alle 26 Buchtsaben aus dem alphabet, sowie die laute.
+
+5. Sobald ein Speiler auf ein buchstabe klickt wird überprüft ob dieser richtig war oder falsch, gleichzeitg wird dieser durchstrchen angezeigt.
+
+6. Der Buchtsabe ist danach nicht mehr nutzbar
+
+7. war es der richtige buchstabe, dann wird der weiterhin in der input eingabe anzeigt, der nicht mehr bearbeitbar oder anklickbar ist.
+
+8. es gibt eine schleife die die ganze zeit überprüft ob das wort gefunden wurde oder die fehler auf 0 gekommen sind.
+
+9. in den inputs kann nur ein char rein.
+
+10. alles wird gross geschrieben
+
+11- nachdme ein wort richtig geratenwurde muss er iminput sngezigt werden, es mus einen input geben vwo man 
+die buchstaen die geraten werden können eingegben werden können.
+
+
