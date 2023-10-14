@@ -70,7 +70,9 @@ body {
 
 
 
-#info-Text {}
+#info-Text {
+   
+}
 
 .btn {
     padding: 2px;
@@ -154,10 +156,13 @@ body {
     top: 350px;
 }
 
+#direct-user-input{
+  position: relative;
+  top: -60px;
+}
+
 #Charakter-Input {
-    position: absolute;
-    top: -90px;
-    left: 120px;
+   
     border-bottom: 4px solid rgb(134, 28, 28);
 }
 

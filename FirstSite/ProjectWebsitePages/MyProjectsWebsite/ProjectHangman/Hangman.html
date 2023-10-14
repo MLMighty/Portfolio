@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projekt Hangman</title>
     <link rel="stylesheet" href="WebDesign.css">
-    
+
 </head>
 
-<body onload="import('./Main.js').then(module => module.ShowPopUp(true))"> 
+<body onload="import('./scripts/Main.js').then(module => module.ShowPopUp(true))">
 
     <header>
 
@@ -39,7 +39,7 @@
                             und kann nicht mehr <br>
                             und kann nicht mehr angewendet werden. Nach 11 falsch genutzen Buchstaben hast du verloren.
                         </p>
-                       
+
 
                         <button class="btn" id="Start-Button">Start</button>
 
@@ -57,31 +57,34 @@
             <div id="missed"> Misses: <span id="wrong-Answer">0</span> </div>
 
             <div id="Charakter-Container">
-                A B C D E F G H I J  K L M O P Q R S T U V
+
             </div>
 
             <div id="inputs-Container">
-                <input type="text" id="Charakter-Input" class="input" maxlength="1" required placeholder="?">
+                <div id="direct-user-input">
+                    <!-- <input type="text" id="Charakter-Input" class="input" maxlength="1" required placeholder="?"> -->
+                </div>
 
-                <input type="text" class="input" maxlength="1" required placeholder="A">
+
+                <!-- <input type="text" class="input" maxlength="1" required placeholder="A">
                 <input type="text" class="input" maxlength="1" required placeholder="P">
                 <input type="text" class="input" maxlength="1" required placeholder="F">
                 <input type="text" class="input" maxlength="1" required placeholder="E">
-                <input type="text" class="input" maxlength="1" required placeholder="L">
+                <input type="text" class="input" maxlength="1" required placeholder="L"> -->
             </div>
-           
+
         </div>
         </div>
 
     </main>
 
 
-  
+
     <script type="module">
-        import { ShowPopUp } from "./Main.js";
-       
-      </script>
-  
+        import { ShowPopUp } from "./scripts/Main.js";
+
+    </script>
+
 
 </body>
 

@@ -1,0 +1,109 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgb(54, 48, 48);
+}
+
+header{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 80px;
+    margin-bottom: 15px;
+
+}
+
+/* header */
+
+#header-Container{
+}
+
+#header-Content{
+    margin-top: 10px;
+}
+
+#headline{
+    
+    color: rgb(231, 241, 239);
+}
+
+#links-Container{
+    position: relative;
+    left: 35px;
+    margin-top: 7px;
+    
+}
+
+.link{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: blueviolet;
+    font-size: larger;
+    text-decoration: none;
+}
+
+.link:hover{
+
+}
+
+
+.link-separator{
+    font-weight: 900;
+    font-size: 25px;
+    
+}
+
+/* main */
+
+#main-Container{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+
+#main-Content{
+    position: absolute;
+    top: 200px;
+    
+}
+
+
+#welcome-Content{
+    text-align: center;
+}
+
+
+#welcome-text{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    
+}
+
+
+#Button-Container{
+    position: relative;
+    flex-direction: column;
+    top: 60px;
+   
+}
+
+
+
+
+.btn{
+    padding: 3px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    border: 2px solid rgb(114, 49, 49);
+    border-radius: 10px;
+    width: 250px;
+    background-color: rgb(129, 97, 97);
+    box-shadow: rgba(179, 179, 196, 0.2) 0px 7px 29px 0px;
+    cursor: pointer;
+}
+
+
