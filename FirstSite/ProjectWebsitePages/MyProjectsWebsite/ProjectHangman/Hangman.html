@@ -9,8 +9,9 @@
 
 </head>
 
-<body onload="import('./scripts/Main.js').then(module => module.ShowPopUp(true))">
+<body  onload="import('./scripts/Main.js').then(module => module.ShowPopUp(true))">
 
+    
     <header>
 
         <div id="header-Container">
@@ -19,7 +20,7 @@
 
     </header>
 
-    <main>
+    <main id="main">
 
         <div id="main-Container">
             <div id="PopUp-background-Shadowing" class="hide">
@@ -30,15 +31,22 @@
 
                         <button id="Close-PopUp-Icon" class="btn"><span>&#10008;</span></button>
 
-                        <p id="info-Text">
+                        <div id="info-Text-Container">
+                            <p class="info-text">
                             Sobald du auf Start klickst, fängt das System an deine Zeit zu messen <br>
                             <br>
-                            INFO: in diesem spiel geht es darum ein Wort herauszufinden, du hast alle im Alpahbet
-                            stehenden <br>
-                            buschtaben zur verfügung, sobald du ein Buchstabe, benutzt hast, wird dieser durchgestrichen
-                            und kann nicht mehr <br>
-                            und kann nicht mehr angewendet werden. Nach 11 falsch genutzen Buchstaben hast du verloren.
-                        </p>
+                            INFO: Du hast alle buchstaben die im Alphabet stehen zur verfügung, um das gesuchte Wort 
+                            herauszufinden. <br>
+                            Du hast nur 12 Fehlversuche und 10 Minuten zur Verfügung.
+                            </p>
+
+                            <br>
+
+                            <p class="update-News">
+                                Bald kommen Schwierigkeitsgrade.
+                            </p>
+                    
+                        </div>
 
 
                         <button class="btn" id="Start-Button">Start</button>
@@ -54,7 +62,7 @@
         <div id="Game-Container">
             <div id="count-Time">Time: <span id="time">00:00</span></div>
             <h2>What is the Word going to be?</h2>
-            <div id="missed"> Misses: <span id="wrong-Answer">0</span> </div>
+            <div id="missesCounter"> Misses: <span id="wrong-Answer">0</span> </div>
 
             <div id="Charakter-Container">
 

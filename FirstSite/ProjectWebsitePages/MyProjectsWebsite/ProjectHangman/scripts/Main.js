@@ -24,6 +24,7 @@ export function ShowPopUp(boolean) {
                 hangmanGame.showAlphabet();
                 hangmanGame.createUserInput();
                 CountTime.CountTime();
+                hangmanGame.handleUserMisses();
             } catch (error) {
                 alert(error)
             }

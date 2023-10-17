@@ -1,11 +1,16 @@
+import { Timer } from "./TimerCounter.js";
+
+const instanz = new Timer();
+
 export class Hangman {
 
     constructor() {
         this.CharakterContainer = document.getElementById("Charakter-Container");
         this.inputContainer = document.getElementById("inputs-Container");
         this.directUserInput = document.getElementById("direct-user-input");
+        this.missesCounter = document.getElementById("wrong-Answer");
         this.alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        this.words = ["computer", "job", "ointment", "water", "apple", "Desinfection", "javascript", "flower", "brother", "cat","game"];
+        this.words = ["computer", "job", "ointment", "water", "apple", "desinfection", "javascript", "flower", "brother", "cat","game"];
         this.alreadyCreated = false;
         this.userInput;
         this.randomWord;
@@ -13,6 +18,7 @@ export class Hangman {
         this.string = "";
         this.next = 0;
         this.functionCalled = 0;
+        this.misses = 0;
     }
 
     createInput() {
@@ -33,7 +39,8 @@ export class Hangman {
         for (let i = 0; i < this.alphabet.length; i++) {
             let char = this.alphabet.charAt(i);
             let spanDom = document.createElement("span");
-            spanDom.textContent =  char + " ";
+            spanDom.classList.add("alphabet-chars");
+            spanDom.textContent = char + "  ";
             spanDom.id = `char-${char}`;
             this.CharakterContainer.append(spanDom);
         }
@@ -45,6 +52,8 @@ export class Hangman {
             usedAlphabet = this.alphabet.charAt(j);
             if (usedAlphabet === userInputValue.toUpperCase()) {
                 spanElement.style.textDecoration = "line-through";
+                spanElement.style.textDecorationColor = "red";
+                spanElement.style.textDecorationThickness = "4px";
                 break;
             }
         }
@@ -56,11 +65,11 @@ export class Hangman {
                 this.saveBtnArray[i].value = userInputValue;
                 this.saveBtnArray[i].readOnly = true;
                 this.saveBtnArray.splice(i, 1, this.saveBtnArray[i].value);
-                // Probleme mit doppeltbuchstaben
-                // this.handleAlreadyExistingChar(this.userInputValue);
                 this.controllGuessedWord(this.saveBtnArray);
               
             }
+          
+
         }
         this.createUserInput();
     }
@@ -111,14 +120,17 @@ export class Hangman {
     }
 
 
-    handlUserMisses(){
-        let misses = 0;
-        const max_Misses=12;
+    handleUserMisses(){
+        const max_Misses = 12;
 
-        if(misses == max_Misses){
-            alert("You lost")
-
+        if(this.misses == max_Misses || instanz.pause == true){
+            document.getElementById("main").style.display="none";
+            alert("you lost");
         }
+  
+        this.missesCounter.innerHTML=this.misses;
+        // requestAnimationFrame(this.handleUserMisses);
+        // Probleme mit dem misses
     }
 
     sortArrayValue() {
@@ -126,10 +138,14 @@ export class Hangman {
             this.string += this.saveBtnArray[index];
         }
     }
+
+
 }
 
 
 
 // Misses funktion
-// Timer ausbessern
+// Timer ausbessern, 
 // tipp button
+// die unteren eingabefelder brauchen die funktion wenn man reinschreibt dass es auch richtig ist oder nicht.
+// also das man direkt das ganze wort reinschreiben kann.

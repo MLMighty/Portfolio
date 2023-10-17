@@ -7,6 +7,7 @@ export class Timer {
         this.date = new Date;
         this.Time = 0;
         this.pause = false;
+        this.requestID;
         this.CountTime = this.CountTime.bind(this);
         this.CountTime()
     }
@@ -20,16 +21,18 @@ export class Timer {
             this.Time = new Date().getTime() - this.date.getTime();
             this.ShowRightTime();
 
-        } else if (this.pause) {
-            this.Time = 0;
-            this.TimeCounter.innerText = this.Time;
+        } // else if (this.pause) {
+        //     this.Time = 0;
+        //     this.TimeCounter.innerText = this.Time;
 
-        }
 
-        requestAnimationFrame(this.CountTime);
-    }
+        // }
 
-    ShowRightTime() {
+        this.requestID = requestAnimationFrame(this.CountTime);
+
+            }
+
+    ShowRightTime(){
 
         let seconds = Math.floor(this.Time / 1000) % 60;
         let minuts = Math.floor(this.Time / 60000) % 60;
@@ -37,10 +40,20 @@ export class Timer {
         seconds = (seconds < 10) ? "0" + seconds : "" + seconds;
         minuts = (minuts < 10) ? "  0" + minuts : "" + minuts;
 
+        if(minuts==2){
+            this.TimeCounter.innerHTML = minuts + ":" + seconds;
+            this.stopTimer();
+            this.pause = true; 
+        }else{
+            this.TimeCounter.innerHTML = minuts + ":" + seconds;
+        }
 
-        this.TimeCounter.innerHTML = minuts + ":" + seconds;
+
+    }
 
 
+    stopTimer(){
+        cancelAnimationFrame(this.requestID)
     }
 }
    
