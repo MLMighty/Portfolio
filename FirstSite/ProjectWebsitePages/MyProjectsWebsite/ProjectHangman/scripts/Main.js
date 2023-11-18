@@ -18,7 +18,7 @@ export function ShowPopUp(boolean) {
 
         StartButton.addEventListener("click", () => {
             PopUp.classList.add("hide");
-
+            
             try {
                 hangmanGame.createInput();
                 hangmanGame.showAlphabet();
@@ -26,7 +26,7 @@ export function ShowPopUp(boolean) {
                 CountTime.CountTime();
                 hangmanGame.handleUserMisses();
             } catch (error) {
-                alert(error)
+                alert(error);
             }
            
 

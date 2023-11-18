@@ -1,5 +1,9 @@
 'use strict'
 
+import { Hangman } from "./Hangman.js";
+
+
+
 export class Timer {
 
     constructor() {
@@ -9,7 +13,9 @@ export class Timer {
         this.pause = false;
         this.requestID;
         this.CountTime = this.CountTime.bind(this);
-        this.CountTime()
+
+        this.hangmanInstance = new Hangman;
+        
     }
 
 
@@ -40,10 +46,13 @@ export class Timer {
         seconds = (seconds < 10) ? "0" + seconds : "" + seconds;
         minuts = (minuts < 10) ? "  0" + minuts : "" + minuts;
 
-        if(minuts==2){
-            this.TimeCounter.innerHTML = minuts + ":" + seconds;
+        console.log(minuts)
+
+        if(minuts == 1){
+            console.log("stop")
             this.stopTimer();
-            this.pause = true; 
+            this.hangmanInstance.handleUserMisses(this.pause);
+            this.TimeCounter.innerHTML = minuts + ":" + seconds;
         }else{
             this.TimeCounter.innerHTML = minuts + ":" + seconds;
         }
@@ -53,7 +62,9 @@ export class Timer {
 
 
     stopTimer(){
+        this.pause == true;
         cancelAnimationFrame(this.requestID)
+        
     }
 }
    

@@ -1,6 +1,7 @@
-import { Timer } from "./TimerCounter.js";
+// import { Timer } from "./TimerCounter.js";
 
-const instanz = new Timer();
+// const instanz = new Timer();
+
 
 export class Hangman {
 
@@ -10,10 +11,20 @@ export class Hangman {
         this.directUserInput = document.getElementById("direct-user-input");
         this.missesCounter = document.getElementById("wrong-Answer");
         this.alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        this.words = ["computer", "job", "ointment", "water", "apple", "desinfection", "javascript", "flower", "brother", "cat","game"];
+        
+        this.categorys = [
+            {category:"things in the kitchen",
+             words:["knife","glass","oven"]},
+            
+            {category:"food",
+             words:["burger","fries","cheese","pizza","cornflakes"]},
+        ]
+
+       
+        this.word;
         this.alreadyCreated = false;
         this.userInput;
-        this.randomWord;
+       
         this.saveBtnArray = [];
         this.string = "";
         this.next = 0;
@@ -22,9 +33,13 @@ export class Hangman {
     }
 
     createInput() {
-        this.randomWord = this.words[Math.floor(Math.random() * this.words.length)];
-        console.log(this.randomWord);
-        for (let i = 0; i < this.randomWord.length; i++) {
+        let randomcategory=this.categorys[Math.floor(Math.random()* this.categorys.length)]
+        console.log(randomcategory)
+        let randomWord = randomcategory.words
+        console.log(randomWord)
+        this.word = randomWord[Math.floor(Math.random() * randomWord.length)];
+        console.log(this.word);
+        for (let i = 0; i < this.word.length; i++) {
             let input = document.createElement("input");
             input.maxLength = 1;
             input.required = true;
@@ -32,7 +47,7 @@ export class Hangman {
             this.inputContainer.append(input);
             this.saveBtnArray.push(input);
         }
-        this.checkInputValue(this.randomWord);
+        this.checkInputValue(this.word);
     }
 
     showAlphabet() {
@@ -60,15 +75,16 @@ export class Hangman {
     }
 
     checkInputValue(userInputValue) {
-        for (let i = 0; i < this.randomWord.length; i++) {
-            if (userInputValue == this.randomWord.charAt(i)) {
+        for (let i = 0; i < this.word.length; i++) {
+            if (userInputValue == this.word.charAt(i)) {
                 this.saveBtnArray[i].value = userInputValue;
                 this.saveBtnArray[i].readOnly = true;
                 this.saveBtnArray.splice(i, 1, this.saveBtnArray[i].value);
                 this.controllGuessedWord(this.saveBtnArray);
               
+            }else{
+                this.misses--;
             }
-          
 
         }
         this.createUserInput();
@@ -109,8 +125,8 @@ export class Hangman {
         this.functionCalled++;
         if (this.saveBtnArray.length === this.functionCalled) {
             this.sortArrayValue();
-            for (let index = 0; index < this.words.length; index++) {
-                if (this.string === this.words[index]) {
+            for (let index = 0; index < this.word.length; index++) {
+                if (this.string === this.word[index]) {
                     alert("you guessed the word: " + this.string);
                     break;
                 }
@@ -119,19 +135,19 @@ export class Hangman {
         }
     }
 
+    handleUserMisses(pause){
 
-    handleUserMisses(){
-        const max_Misses = 12;
 
-        if(this.misses == max_Misses || instanz.pause == true){
-            document.getElementById("main").style.display="none";
-            alert("you lost");
-        }
+        // if(this.misses == max_Misses || pause === true){
+        //     document.getElementById("main").style.display="none";
+        //     alert("you lost");
+        // }
   
-        this.missesCounter.innerHTML=this.misses;
+        // this.missesCounter.innerHTML=this.misses;
         // requestAnimationFrame(this.handleUserMisses);
         // Probleme mit dem misses
     }
+
 
     sortArrayValue() {
         for (let index = 0; index < this.saveBtnArray.length; index++) {
